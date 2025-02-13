@@ -20,3 +20,5 @@ function verificarChute() {
 function gerarNumAleatorio() {
   return parseInt(Math.random() * 10 + 1);
 }
+
+//Este é apenas um teste
