@@ -4,6 +4,7 @@ const numSecreto = gerarNumAleatorio();
 // Os param são alterados quando chamo mais embaixo
 //A variável informacao armazena o acesso à tag
 // innerHTML vai colocar o texto alterado em informacao
+
 function textoNaTela(tag, texto) {
   const informacao = document.querySelector(tag);
   informacao.innerHTML = texto;
