@@ -1,4 +1,5 @@
-const numSecreto = gerarNumAleatorio();
+let numSecreto = 5;
+let tentativas = 1;
 
 //Função com param para alterar o conteúdo do texto dinamicamente
 // Os param são alterados quando chamo mais embaixo
@@ -6,7 +7,7 @@ const numSecreto = gerarNumAleatorio();
 // innerHTML vai colocar o texto alterado em informacao
 
 function textoNaTela(tag, texto) {
-  const informacao = document.querySelector(tag);
+  let informacao = document.querySelector(tag);
   informacao.innerHTML = texto;
 }
 //Quando chamar basta colocar o que pretende alterar na sequencia igual no param da função criada
@@ -14,12 +15,26 @@ textoNaTela("h1", "Jogo do número secreto");
 textoNaTela("p", "Escolha um número entre 1 e 10");
 
 function verificarChute() {
-  const chute = document.querySelector("input").value;
-  console.log(chute == numSecreto);
+  let chute = document.querySelector("input").value;
+
+  if (chute == numSecreto) {
+    let palavraTentativa = tentativas > 1 ? "tentativas" : "tentativa";
+    let mensagemTentativa = `Você descobriu com ${tentativas} ${palavraTentativa}`;
+    textoNaTela("h1", mensagemTentativa);
+  } else {
+    if (chute > numSecreto) {
+      textoNaTela("h1", "O número secreto é menor.");
+    } else {
+      textoNaTela("h1", "O número secreto é maior");
+    }
+    tentativas++;
+  }
 }
 
 function gerarNumAleatorio() {
   return parseInt(Math.random() * 10 + 1);
 }
 
-//Este é apenas um teste
+// let palavraTentativa = tentativas > 1 ? "tentativas" : "tentativa";
+// let mensagemTentativa = `Você descobriu com ${tentativas} ${palavraTentativa}`;
+// textoNaTela("h1", mensagemTentativa);
