@@ -11,9 +11,14 @@ function textoNaTela(tag, texto) {
   informacao.innerHTML = texto;
 }
 //Quando chamar basta colocar o que pretende alterar na sequencia igual no param da função criada
-textoNaTela("h1", "Jogo do número secreto");
-textoNaTela("p", "Escolha um número entre 1 e 10");
+function mensagemInicial() {
+  textoNaTela("h1", "Jogo do número secreto");
+  textoNaTela("p", "Escolha um número entre 1 e 10");
+}
+//Chamamos a função aqui para que ao iniciar a página e reiniciar o jogo possa aparecer
+// a mensagem. CHamando ela dentro de alguma função não irá aprecer no reload da página
 
+mensagemInicial();
 function verificarChute() {
   let chute = document.querySelector("input").value;
 
@@ -21,6 +26,7 @@ function verificarChute() {
     let palavraTentativa = tentativas > 1 ? "tentativas" : "tentativa";
     let mensagemTentativa = `Você descobriu com ${tentativas} ${palavraTentativa}`;
     textoNaTela("h1", mensagemTentativa);
+    document.getElementById("reiniciar").removeAttribute("disabled");
   } else {
     if (chute > numSecreto) {
       textoNaTela("h1", "O número secreto é menor.");
@@ -28,11 +34,25 @@ function verificarChute() {
       textoNaTela("h1", "O número secreto é maior");
     }
     tentativas++;
+    limparNum();
   }
 }
 
 function gerarNumAleatorio() {
   return parseInt(Math.random() * 10 + 1);
+}
+function limparNum() {
+  chute = document.querySelector("input");
+  chute.value = "";
+}
+
+//Reinicia todoo jogo sem carregar a página
+function reiniciarJogo() {
+  numSecreto = gerarNumAleatorio();
+  limparNum();
+  tentativas = 1;
+  mensagemInicial();
+  document.getElementById("reinicar").setAttribute("disabled", true);
 }
 
 // let palavraTentativa = tentativas > 1 ? "tentativas" : "tentativa";
