@@ -1,4 +1,6 @@
-let numSecreto = 5;
+let listaNumSorteados = [];
+let numLimite = 10;
+let numSecreto = gerarNumAleatorio();
 let tentativas = 1;
 
 //Função com param para alterar o conteúdo do texto dinamicamente
@@ -39,7 +41,17 @@ function verificarChute() {
 }
 
 function gerarNumAleatorio() {
-  return parseInt(Math.random() * 10 + 1);
+  let numEscolhido = parseInt(Math.random() * numLimite + 1);
+  let quantidadeElementosLista = listaNumSorteados.length;
+  if (quantidadeElementosLista == numLimite) {
+    listaNumSorteados = [];
+  }
+  if (listaNumSorteados.includes(numEscolhido)) {
+  } else {
+    listaNumSorteados.push(numEscolhido);
+    console.log(listaNumSorteados);
+    return numEscolhido;
+  }
 }
 function limparNum() {
   chute = document.querySelector("input");
