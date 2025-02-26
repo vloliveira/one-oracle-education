@@ -15,6 +15,11 @@ function exibirNome() {
 }
 
 // Criar uma função que recebe um número como parâmetro e retorna o dobro desse número.
+function dobro() {
+  const num = document.getElementById("num").value;
+  let resultado = num * 2;
+  console.log(resultado);
+}
 
 // Criar uma função que recebe três números como parâmetros e retorna a média deles.
 
