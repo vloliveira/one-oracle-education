@@ -11,18 +11,35 @@
 
 function exibirNome() {
   const nome = document.querySelector("input").value;
+  document.querySelector("input").value = "";
   console.log(`Olá ${nome}`);
 }
 
 // Criar uma função que recebe um número como parâmetro e retorna o dobro desse número.
+//Extra: limpar o input após enviar
 function dobro() {
   const num = document.getElementById("num").value;
   let resultado = num * 2;
+  document.getElementById("num").value = "";
   console.log(resultado);
 }
 
 // Criar uma função que recebe três números como parâmetros e retorna a média deles.
+//Extra: limpar o input após enviar
+function media() {
+  const num1 = parseInt(document.getElementById("num1").value);
+  const num2 = parseInt(document.getElementById("num2").value);
+  const num3 = parseInt(document.getElementById("num3").value);
+
+  const resultado = (num1 + num2 + num3) / 3;
+  document.getElementById("num1").value = "";
+  document.getElementById("num2").value = "";
+  document.getElementById("num3").value = "";
+  console.log(resultado);
+}
 
 // Criar uma função que recebe dois números como parâmetros e retorna o maior deles.
+//Extra: limpar o input após enviar
 
 // Criar uma função que recebe um número como parâmetro e retorna o resultado da multiplicação desse número por ele mesmo
+//Extra: limpar o input após enviar
