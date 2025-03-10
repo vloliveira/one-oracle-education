@@ -41,5 +41,25 @@ function media() {
 // Criar uma função que recebe dois números como parâmetros e retorna o maior deles.
 //Extra: limpar o input após enviar
 
+function maior() {
+  const numero1 = parseInt(document.getElementById("numero1").value);
+  const numero2 = parseInt(document.getElementById("numero2").value);
+
+  if (numero1 > numero2) {
+    console.log(numero1);
+  } else {
+    console.log(numero2);
+  }
+  document.getElementById("numero1").value = "";
+  document.getElementById("numero2").value = "";
+}
+
 // Criar uma função que recebe um número como parâmetro e retorna o resultado da multiplicação desse número por ele mesmo
 //Extra: limpar o input após enviar
+
+function multiplicar() {
+  const numero = parseInt(document.getElementById("numero").value);
+  const result = numero * numero;
+  console.log(result);
+  document.getElementById("numero").value = "";
+}
